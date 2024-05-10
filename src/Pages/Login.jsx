@@ -1,19 +1,54 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import {
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+} from "firebase/auth";
+import app from "../Firebase/firebase.config";
+
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  // const [user, setUser] = useState();
+  const { setUser, signIn } = useContext(AuthContext);
+
+  // google login
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const currentUser = result.user;
+        // console.log(currentUser);
+        setUser(currentUser);
+        alert("login successful");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    const object = { email, password };
-    signIn(email, password);
-    console.log(object);
+    // const object = { email, password };
+    signIn(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        setUser(currentUser);
+        alert("Login Successful");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    // console.log(object);
   };
   return (
     <div>
@@ -68,7 +103,7 @@ const Login = () => {
         </div>
         <div className="mb-3 font-bold flex justify-center items-center gap-3">
           <div>
-            <button className="btn btn-primary">
+            <button onClick={handleGoogleSignIn} className="btn btn-primary">
               <span>Login With</span>
               <div className="text-xl">
                 <FaGoogle></FaGoogle>
