@@ -4,11 +4,11 @@ import Footer from "../Components/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-[1200px]  mx-auto font-nunito">
-      <div>
+    <div className="font-nunito">
+      <div className="max-w-[1200px] mx-auto">
         <Navbar></Navbar>
       </div>
-      <div>
+      <div className="min-h-[calc(100vh-340px)] max-w-[1200px] mx-auto md:my-6 lg:my-12">
         <Outlet></Outlet>
       </div>
       <div>

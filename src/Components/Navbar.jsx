@@ -1,4 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Navbar = () => {
   const navItems = (
@@ -19,7 +22,12 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-xl font-bold">
+    <div
+      className="navbar bg-base-100 shadow-xl font-bold"
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
