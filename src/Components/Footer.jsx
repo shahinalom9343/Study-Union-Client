@@ -3,7 +3,7 @@ import webImg from "../../public/icon.png";
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-black dark:bg-gray-900 text-white font-semibold">
+      <footer className="bg-black dark:bg-slate-50 text-white dark:text-gray-900 font-semibold">
         <div className="container lg:px-20 py-6 mx-auto">
           <div className="lg:flex">
             <div className="w-full -mx-6 lg:w-2/5">

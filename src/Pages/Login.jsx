@@ -1,19 +1,20 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import {
-  FacebookAuthProvider,
+  GithubAuthProvider,
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
+import Swal from "sweetalert2";
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const Login = () => {
   // const [user, setUser] = useState();
@@ -26,13 +27,40 @@ const Login = () => {
         const currentUser = result.user;
         // console.log(currentUser);
         setUser(currentUser);
-        alert("login successful");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Login Successfully !!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
+  // github login
+  const handleGithubSignIn = () => {
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        const currentUser = result.user;
+        // console.log(currentUser);
+        setUser(currentUser);
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Login Successfully !!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // email password login
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -43,7 +71,13 @@ const Login = () => {
       .then((result) => {
         const currentUser = result.user;
         setUser(currentUser);
-        alert("Login Successful");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Login Successfully !!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -112,7 +146,7 @@ const Login = () => {
           </div>
           <div>
             {" "}
-            <button className=" btn btn-secondary">
+            <button onClick={handleGithubSignIn} className=" btn btn-secondary">
               <span>Login With</span>
               <div className="text-xl">
                 <FaGithub></FaGithub>
