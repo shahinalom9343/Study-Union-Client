@@ -85,7 +85,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
-      <div className="navbar-end mr-10">
+      <div className="navbar-end mr-4">
         <label className="text-5xl mr-1 cursor-pointer grid place-items-center">
           <input
             type="checkbox"
