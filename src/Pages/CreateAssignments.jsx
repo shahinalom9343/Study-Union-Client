@@ -2,6 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
 const CreateAssignments = () => {
@@ -51,7 +52,10 @@ const CreateAssignments = () => {
       });
   };
   return (
-    <div className="py-10 px-4 dark:bg-gray-100 dark:text-gray-900">
+    <div className="px-4 dark:bg-gray-100 dark:text-gray-900">
+      <Helmet>
+        <title>Study Union | Create Assignment</title>
+      </Helmet>
       <form
         className="container flex flex-col mx-auto space-y-12"
         onSubmit={handleCreateAssignment}

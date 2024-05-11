@@ -8,7 +8,7 @@ const MainLayout = () => {
       <div className="max-w-[1200px] mx-auto">
         <Navbar></Navbar>
       </div>
-      <div className="min-h-[calc(100vh-340px)] max-w-[1200px] mx-auto md:my-6 lg:my-12">
+      <div className="min-h-[calc(100vh-340px)] max-w-[1200px] mx-auto my-2">
         <Outlet></Outlet>
       </div>
       <div>

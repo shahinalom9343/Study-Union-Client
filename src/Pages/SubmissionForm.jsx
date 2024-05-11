@@ -3,6 +3,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 
 const SubmissionForm = () => {
   const { user } = useContext(AuthContext);
+  const handleSubmit = (_id) => {};
   return (
     <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
       <form
@@ -54,6 +55,7 @@ const SubmissionForm = () => {
               <div className="flex items-center space-x-2">
                 <button
                   type="button"
+                  onClick={() => handleSubmit()}
                   className="px-4 btn btn-info w-full text-white font-bold text-xl py-2 border rounded-md dark:border-gray-800"
                 >
                   Submit Assignment

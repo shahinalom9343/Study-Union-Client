@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import PrivateRoutes from "../Routes/PrivateRoutes";
+import logoStudy from "../../public/icon.png";
 
 AOS.init();
 
@@ -59,7 +60,7 @@ const Navbar = () => {
   );
   return (
     <div
-      className="navbar bg-base-100 shadow-xl font-bold"
+      className="navbar text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-xl font-bold"
       data-aos="fade-down"
       data-aos-easing="linear"
       data-aos-duration="1500"
@@ -89,9 +90,12 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <Link to="/" className="text-2xl font-bold btn btn-ghost">
-          Study Union
-        </Link>
+        <div className="flex">
+          <img src={logoStudy} className="h-10 w-10 mr-[-1px]" alt="" />
+          <Link to="/" className="text-2xl font-bold btn btn-ghost">
+            Study Union
+          </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
