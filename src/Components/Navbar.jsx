@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import PrivateRoutes from "../Routes/PrivateRoutes";
 
 AOS.init();
 
@@ -39,8 +40,18 @@ const Navbar = () => {
         <NavLink to="/about">About</NavLink>
       </li>
       <li>
-        <NavLink to="/allassignment">All Assignments</NavLink>
+        <NavLink to="/assignments">Assignments</NavLink>
       </li>
+      <PrivateRoutes>
+        <li>
+          <NavLink to="/createassignments">Create Assignments</NavLink>
+        </li>
+      </PrivateRoutes>
+      <PrivateRoutes>
+        <li>
+          <NavLink to="/pendingassignments">Pending Assignments</NavLink>
+        </li>
+      </PrivateRoutes>
       <li>
         <NavLink to="/contact">Contact</NavLink>
       </li>
@@ -78,7 +89,7 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl">
+        <Link to="/" className="text-2xl font-bold btn btn-ghost">
           Study Union
         </Link>
       </div>
@@ -142,23 +153,35 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-teal-800 text-white font-bold rounded-box w-60"
             >
               <li>
-                <a>Profile</a>
+                <a>My attemped Assignments</a>
               </li>
+
               <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <button onClick={handleSignOut}>Logout</button>
+                <button
+                  className="bg-pink-600 text-center"
+                  onClick={handleSignOut}
+                >
+                  Logout
+                </button>
               </li>
             </ul>
           </div>
         ) : (
           <div>
-            <Link to="/login" className="btn btn-accent">
+            <Link
+              to="/login"
+              className="text-xl font-bold text-white btn btn-accent mr-2"
+            >
               Login
+            </Link>
+            <Link
+              to="/register"
+              className="text-xl font-bold text-white btn btn-secondary"
+            >
+              Register
             </Link>
           </div>
         )}

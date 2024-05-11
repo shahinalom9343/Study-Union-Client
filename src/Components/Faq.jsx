@@ -1,6 +1,6 @@
 const Faq = () => {
   return (
-    <section className="bg-white dark:bg-gray-900 border-2 rounded-lg">
+    <div className="bg-white dark:bg-gray-900 border-2 rounded-lg">
       <div className="container px-6 py-8 mx-auto">
         <h1 className="text-5xl text-center  font-extrabold text-gray-800 lg:text-3xl dark:text-white">
           Frequently asked questions.
@@ -207,7 +207,7 @@ const Faq = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
