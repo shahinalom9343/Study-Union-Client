@@ -9,6 +9,9 @@ import Contact from "../Pages/Contact";
 import AllAssignments from "../Pages/AllAssignments";
 import CreateAssignments from "../Pages/CreateAssignments";
 import PendingAssignments from "../Pages/PendingAssignments";
+import PrivateRoutes from "./PrivateRoutes";
+import AssignmentDetails from "../Pages/AssignmentDetails";
+import SubmissionForm from "../Pages/SubmissionForm";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +26,25 @@ const router = createBrowserRouter([
       {
         path: "/assignments",
         element: <AllAssignments></AllAssignments>,
+        loader: () => fetch("http://localhost:5000/assignments"),
       },
       {
         path: "/createassignments",
         element: <CreateAssignments></CreateAssignments>,
+      },
+      {
+        path: "/assignmentDetails/:id",
+        element: (
+          <PrivateRoutes>
+            <AssignmentDetails></AssignmentDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/assignments/${params.id}`),
+      },
+      {
+        path: "/submission",
+        element: <SubmissionForm></SubmissionForm>,
       },
       {
         path: "/pendingassignments",
