@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import webImg from "../../public/icon.png";
 
 const Footer = () => {
@@ -16,8 +17,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className=" mt-2  dark:text-gray-400">
-                    Join 31,000+ other and never miss out on new tips,
-                    tutorials, and more.
+                    Education is the most powerful weapon you can use to change
+                    the world.
                   </p>
                 </div>
                 <div className="flex mt-10">
@@ -73,67 +74,67 @@ const Footer = () => {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <div>
                   <h3 className=" uppercase dark:text-white">About</h3>
-                  <a
-                    href="#"
+                  <Link
+                    to="/"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    Company
-                  </a>
-                  <a
-                    href="#"
+                    Union
+                  </Link>
+                  <Link
+                    to="/about"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    community
-                  </a>
-                  <a
-                    href="#"
+                    About
+                  </Link>
+                  <Link
+                    to="/contact"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    Careers
-                  </a>
+                    Contact
+                  </Link>
                 </div>
 
                 <div>
-                  <h3 className=" uppercase dark:text-white">Blog</h3>
+                  <h3 className=" uppercase dark:text-white">Assignments</h3>
                   <a
                     href="#"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    Tec
+                    Science
                   </a>
                   <a
                     href="#"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    Music
+                    Web Development
                   </a>
-                  <a
-                    href="#"
+                  <Link
+                    to="/assignments"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    Videos
-                  </a>
+                    Demo
+                  </Link>
                 </div>
 
                 <div>
-                  <h3 className=" uppercase dark:text-white">Products</h3>
+                  <h3 className=" uppercase dark:text-white">Innovation</h3>
                   <a
                     href="#"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    Mega cloud
+                    Books
                   </a>
                   <a
                     href="#"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    Aperion UI
+                    Planning
                   </a>
                   <a
                     href="#"
                     className="block mt-2 text-sm  dark:text-gray-400 hover:underline"
                   >
-                    Meraki UI
+                    Ideas
                   </a>
                 </div>
 

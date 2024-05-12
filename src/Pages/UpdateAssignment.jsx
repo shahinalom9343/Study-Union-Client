@@ -1,11 +1,12 @@
 import { useState } from "react";
-import DatePicker from "react-datepicker";
-
-import "react-datepicker/dist/react-datepicker.css";
-import { Helmet } from "react-helmet-async";
+import ReactDatePicker from "react-datepicker";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
-const CreateAssignments = () => {
+const UpdateAssignment = () => {
+  const updateAssignment = useLoaderData();
+  // console.log(updateAssignment);
   const [startDate, setStartDate] = useState(new Date());
   const [difficultyLevel, setDifficultyLevel] = useState("Easy");
 
@@ -14,7 +15,7 @@ const CreateAssignments = () => {
     setDifficultyLevel(level);
   };
 
-  const handleCreateAssignment = (e) => {
+  const handleUpdateAssignment = (e) => {
     e.preventDefault();
     const form = e.target;
     const titleName = form.titleValue.value;
@@ -30,8 +31,8 @@ const CreateAssignments = () => {
       difficulty,
       descriptions,
     };
-    fetch("http://localhost:5000/assignments", {
-      method: "POST",
+    fetch(`http://localhost:5000/assignments/${updateAssignment._id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -40,34 +41,23 @@ const CreateAssignments = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            icon: "success",
-            title: "Assignment Created Successfully !!",
-            showConfirmButton: false,
-            timer: 2000,
-          });
-          form.reset();
-        }
+        console.log(data);
+        alert("Updated Successfully");
       });
   };
   return (
-    <div className="px-4 dark:bg-gray-100 dark:text-gray-900">
-      <Helmet>
-        <title>Study Union | Create Assignment</title>
-      </Helmet>
+    <div>
       <form
+        onSubmit={handleUpdateAssignment}
         className="container flex flex-col mx-auto space-y-12"
-        onSubmit={handleCreateAssignment}
       >
-        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
-          <div className="space-y-2 col-span-full lg:col-span-1 flex flex-col justify-center items-center">
-            <p className="font-bold text-xl text-start">Create an Assignment</p>
-            <p className="text-xl ">
-              You can create an assignment by filling in the form here...
+        <fieldset className=" p-6 rounded-md shadow-sm dark:bg-gray-50">
+          <div>
+            <p className="text-center text-stone-600 text-2xl font-semibold my-2">
+              Update Form :{" "}
             </p>
           </div>
-          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 border-2 bg-violet-100 p-4 rounded-xl">
+          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 border-2 bg-pink-100 p-4 rounded-xl">
             <div className="col-span-6 sm:col-span-3">
               <label htmlFor="firstname" className="text-xl ">
                 Title of the Assignment
@@ -76,7 +66,7 @@ const CreateAssignments = () => {
                 id="firstname"
                 type="text"
                 name="titleValue"
-                placeholder="Title"
+                defaultValue={updateAssignment.titleName}
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
@@ -88,7 +78,7 @@ const CreateAssignments = () => {
                 id="marks"
                 type="number"
                 name="marks"
-                placeholder="Total marks"
+                defaultValue={updateAssignment.marks}
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
@@ -100,7 +90,7 @@ const CreateAssignments = () => {
                 id="thumbnail"
                 type="text"
                 name="thumbnail"
-                placeholder="Image URL"
+                defaultValue={updateAssignment.thumbnail}
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
@@ -111,7 +101,7 @@ const CreateAssignments = () => {
               </label>
               <select
                 className="p-2"
-                value={difficultyLevel}
+                defaultValue={difficultyLevel}
                 onChange={handleDifficulty}
               >
                 <option value="easy">Easy</option>
@@ -123,9 +113,9 @@ const CreateAssignments = () => {
               <label htmlFor="city" className="text-xl ">
                 Due Date:
               </label>
-              <DatePicker
+              <ReactDatePicker
                 className="p-2"
-                selected={startDate}
+                selected={new Date()}
                 onChange={(date) => setStartDate(date)}
               />
             </div>
@@ -138,14 +128,14 @@ const CreateAssignments = () => {
                 id="description"
                 type="text"
                 name="descriptions"
-                placeholder=""
+                defaultValue={updateAssignment.descriptions}
                 className="w-full pl-1 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
             <input
               type="submit"
-              className="text-lg text-white btn btn-info col-span-full"
-              value="Create Assignment"
+              className="text-base text-white btn btn-secondary col-span-full"
+              value="Update Assignment"
             />
           </div>
         </fieldset>
@@ -154,4 +144,4 @@ const CreateAssignments = () => {
   );
 };
 
-export default CreateAssignments;
+export default UpdateAssignment;

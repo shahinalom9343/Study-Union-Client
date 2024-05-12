@@ -4,7 +4,6 @@ import { IoIosArrowDropdown } from "react-icons/io";
 
 const AllAssignments = () => {
   const assignments = useLoaderData();
-  // console.log(assignments);
 
   // delete function
   const handleDelete = (_id) => {
@@ -70,7 +69,7 @@ const AllAssignments = () => {
               <div>Total Marks : {assignment.marks}</div>
               <div>
                 Difficulty :
-                <div className="badge badge-secondary">
+                <div className="badge badge-secondary ml-2">
                   {assignment.difficulty}
                 </div>
               </div>
@@ -84,9 +83,12 @@ const AllAssignments = () => {
                   </button>
                 </div>
                 <div className="card-actions justify-center">
-                  <button className="btn btn-success btn-outline">
+                  <Link
+                    to={`/updateAssignment/${assignment._id}`}
+                    className="btn text-white font-bold btn-success btn-outline"
+                  >
                     Update
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="card-actions">
