@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ReactDatePicker from "react-datepicker";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 // import Swal from "sweetalert2";
 
@@ -9,6 +9,7 @@ const UpdateAssignment = () => {
   // console.log(updateAssignment);
   const [startDate, setStartDate] = useState(new Date());
   const [difficultyLevel, setDifficultyLevel] = useState("Easy");
+  const navigate = useNavigate();
 
   const handleDifficulty = (e) => {
     const level = e.target.value;
@@ -43,6 +44,7 @@ const UpdateAssignment = () => {
         // console.log(data);
         console.log(data);
         alert("Updated Successfully");
+        navigate("/assignments");
       });
   };
   return (
@@ -101,7 +103,7 @@ const UpdateAssignment = () => {
               </label>
               <select
                 className="p-2"
-                defaultValue={difficultyLevel}
+                defaultValue={updateAssignment.difficultyLevel}
                 onChange={handleDifficulty}
               >
                 <option value="easy">Easy</option>

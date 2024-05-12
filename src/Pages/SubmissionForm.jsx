@@ -12,9 +12,9 @@ const SubmissionForm = () => {
         className="container flex flex-col mx-auto space-y-12"
       >
         <fieldset className="grid grid-cols-4 gap-6 border-2 bg-fuchsia-100 p-6 rounded-md shadow-sm dark:bg-gray-50">
-          <div className="space-y-2 col-span-full lg:col-span-1">
-            <p className="font-medium">Submission form</p>
-            <p className="text-xs">
+          <div className="space-y-2 col-span-full lg:col-span-1 text-base my-auto">
+            <p className="font-medium text-2xl">Submission form</p>
+            <p className="text-base">
               Please carefully fill out the form and submit the assignment.
             </p>
           </div>

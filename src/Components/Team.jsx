@@ -7,9 +7,11 @@ const Team = () => {
         </h1>
 
         <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt
-          ex placeat modi magni quia error alias, adipisci rem similique, at
-          omnis eligendi optio eos harum.
+          our executive team combines passion, expertise, and vision to chart a
+          course for success. With a shared commitment to excellence and
+          innovation, we are poised to lead our company to new heights,
+          delivering value to our customers, and making a positive impact in the
+          industry.
         </p>
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
