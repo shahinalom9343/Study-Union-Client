@@ -1,8 +1,25 @@
-# React + Vite
+# Study Union
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live-website link :
+Selected Category : Assignment_category_0001
 
-Currently, two official plugins are available:
+This website is actually a gorup study purpose.
+Different Types of features added on the websites are:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Any user can create an assignment here.
+2. All assignment page contains all assignments which have created individual users.
+3. A user can not permit to delete others Assignment data.
+4. User can update assignment and also can see all assignment details
+5. User can submit specific assignment for creating his/her list endorses.
+
+Different types of languages/framework uses in this websites are:
+HTML
+CSS(Tailwind CSS),
+Javascript(React),
+React Router DOM,
+Node JS,
+Express JS,
+MongoDB atlas,
+Firebase authentication etc
+
+Also various react packages/libraries used here.
