@@ -1,25 +1,62 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SubmissionForm = () => {
   const { user } = useContext(AuthContext);
-  const handleSubmit = () => {};
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const doclink = form.doclink.value;
+    const notes = form.notes.value;
+
+    const submittedAssignments = {
+      doclink,
+      notes,
+    };
+    fetch("http://localhost:5000/mysubmitted", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(submittedAssignments),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Assignment Submitted Successfully !!",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          navigate("/mysubmitted");
+          form.reset();
+        }
+      });
+  };
   return (
-    <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
-      <form
+    <div className="p-6 dark:bg-gray-100 dark:text-gray-900">
+      <div
         noValidate=""
         action=""
         className="container flex flex-col mx-auto space-y-12"
       >
-        <fieldset className="grid grid-cols-4 gap-6 border-2 bg-fuchsia-100 p-6 rounded-md shadow-sm dark:bg-gray-50">
+        <div className="grid grid-cols-4 gap-6 border-2 bg-fuchsia-100 p-6 rounded-md shadow-sm dark:bg-gray-50">
           <div className="space-y-2 col-span-full lg:col-span-1 text-base my-auto">
             <p className="font-medium text-2xl">Submission form</p>
             <p className="text-base">
               Please carefully fill out the form and submit the assignment.
             </p>
           </div>
-          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3"
+          >
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="username" className="text-sm">
                 Username
@@ -38,6 +75,7 @@ const SubmissionForm = () => {
               <input
                 id="website"
                 type="text"
+                name="doclink"
                 placeholder="https://"
                 className="w-full p-4 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
@@ -48,26 +86,23 @@ const SubmissionForm = () => {
               </label>
               <textarea
                 id="bio"
-                placeholder=""
+                name="notes"
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               ></textarea>
             </div>
             <div className="col-span-full">
               <div className="flex items-center space-x-2">
-                <Link
-                  type="button"
-                  to="/mysubmitted"
-                  onClick={() => handleSubmit()}
-                  className="px-4 btn btn-info w-full text-white font-bold text-xl py-2 border rounded-md dark:border-gray-800"
-                >
-                  Submit Assignment
-                </Link>
+                <input
+                  type="submit"
+                  className="text-lg w-full text-white btn btn-accent col-span-full"
+                  value="Submit Assignment"
+                />
               </div>
             </div>
-          </div>
-        </fieldset>
-      </form>
-    </section>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 

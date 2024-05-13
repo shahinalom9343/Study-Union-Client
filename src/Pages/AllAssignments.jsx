@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import AssignmentCard from "./AssignmentCard";
 
 const AllAssignments = () => {
   const assignments = useLoaderData();
@@ -11,22 +12,8 @@ const AllAssignments = () => {
   const totalPages = Math.ceil(assignments.length / assignmentsPerPage);
 
   const pages = [...Array(totalPages).keys()];
-  console.log(pages);
+  // console.log(pages);
 
-  // delete function
-  const handleDelete = (_id) => {
-    // console.log(_id);
-    fetch(`http://localhost:5000/assignments/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        if (data.deletedCount > 0) {
-          alert("Assignment Deleted Successfully");
-        }
-      });
-  };
   return (
     <div>
       <Helmet>
@@ -75,53 +62,10 @@ const AllAssignments = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
             {assignments.map((assignment) => (
-              <div
+              <AssignmentCard
                 key={assignment._id}
-                className="card lg:card-side bg-base-100 shadow-xl"
-              >
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
-                    alt="Album"
-                  />
-                </figure>
-                <div className="card-body bg-pink-100">
-                  <h2 className="card-title">{assignment.titleName}</h2>
-                  <div>Total Marks : {assignment.marks}</div>
-                  <div>
-                    Difficulty :
-                    <div className="badge badge-secondary ml-2">
-                      {assignment.difficulty}
-                    </div>
-                  </div>
-                  <div className="flex gap-1">
-                    <div className="card-actions justify-start">
-                      <button
-                        onClick={() => handleDelete(assignment._id)}
-                        className="btn btn-error"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                    <div className="card-actions justify-center">
-                      <Link
-                        to={`/updateAssignment/${assignment._id}`}
-                        className="btn text-white font-bold btn-success btn-outline"
-                      >
-                        Update
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="card-actions">
-                    <Link
-                      to={`/assignmentDetails/${assignment._id}`}
-                      className="btn w-full btn-primary"
-                    >
-                      View Assignment
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                assignment={assignment}
+              ></AssignmentCard>
             ))}
           </div>
         </TabPanel>
@@ -130,53 +74,10 @@ const AllAssignments = () => {
             {assignments
               .filter((single) => single.difficulty === "Easy")
               .map((assignment) => (
-                <div
+                <AssignmentCard
                   key={assignment._id}
-                  className="card lg:card-side bg-base-100 shadow-xl"
-                >
-                  <figure>
-                    <img
-                      src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
-                      alt="Album"
-                    />
-                  </figure>
-                  <div className="card-body bg-pink-100">
-                    <h2 className="card-title">{assignment.titleName}</h2>
-                    <div>Total Marks : {assignment.marks}</div>
-                    <div>
-                      Difficulty :
-                      <div className="badge badge-secondary ml-2">
-                        {assignment.difficulty}
-                      </div>
-                    </div>
-                    <div className="flex gap-1">
-                      <div className="card-actions justify-start">
-                        <button
-                          onClick={() => handleDelete(assignment._id)}
-                          className="btn btn-error"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                      <div className="card-actions justify-center">
-                        <Link
-                          to={`/updateAssignment/${assignment._id}`}
-                          className="btn text-white font-bold btn-success btn-outline"
-                        >
-                          Update
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="card-actions">
-                      <Link
-                        to={`/assignmentDetails/${assignment._id}`}
-                        className="btn w-full btn-primary"
-                      >
-                        View Assignment
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                  assignment={assignment}
+                ></AssignmentCard>
               ))}
           </div>
         </TabPanel>
@@ -185,53 +86,10 @@ const AllAssignments = () => {
             {assignments
               .filter((single) => single.difficulty === "medium")
               .map((assignment) => (
-                <div
+                <AssignmentCard
                   key={assignment._id}
-                  className="card lg:card-side bg-base-100 shadow-xl"
-                >
-                  <figure>
-                    <img
-                      src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
-                      alt="Album"
-                    />
-                  </figure>
-                  <div className="card-body bg-pink-100">
-                    <h2 className="card-title">{assignment.titleName}</h2>
-                    <div>Total Marks : {assignment.marks}</div>
-                    <div>
-                      Difficulty :
-                      <div className="badge badge-secondary ml-2">
-                        {assignment.difficulty}
-                      </div>
-                    </div>
-                    <div className="flex gap-1">
-                      <div className="card-actions justify-start">
-                        <button
-                          onClick={() => handleDelete(assignment._id)}
-                          className="btn btn-error"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                      <div className="card-actions justify-center">
-                        <Link
-                          to={`/updateAssignment/${assignment._id}`}
-                          className="btn text-white font-bold btn-success btn-outline"
-                        >
-                          Update
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="card-actions">
-                      <Link
-                        to={`/assignmentDetails/${assignment._id}`}
-                        className="btn w-full btn-primary"
-                      >
-                        View Assignment
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                  assignment={assignment}
+                ></AssignmentCard>
               ))}
           </div>
         </TabPanel>
@@ -240,53 +98,10 @@ const AllAssignments = () => {
             {assignments
               .filter((single) => single.difficulty === "hard")
               .map((assignment) => (
-                <div
+                <AssignmentCard
                   key={assignment._id}
-                  className="card lg:card-side bg-base-100 shadow-xl"
-                >
-                  <figure>
-                    <img
-                      src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
-                      alt="Album"
-                    />
-                  </figure>
-                  <div className="card-body bg-pink-100">
-                    <h2 className="card-title">{assignment.titleName}</h2>
-                    <div>Total Marks : {assignment.marks}</div>
-                    <div>
-                      Difficulty :
-                      <div className="badge badge-secondary ml-2">
-                        {assignment.difficulty}
-                      </div>
-                    </div>
-                    <div className="flex gap-1">
-                      <div className="card-actions justify-start">
-                        <button
-                          onClick={() => handleDelete(assignment._id)}
-                          className="btn btn-error"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                      <div className="card-actions justify-center">
-                        <Link
-                          to={`/updateAssignment/${assignment._id}`}
-                          className="btn text-white font-bold btn-success btn-outline"
-                        >
-                          Update
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="card-actions">
-                      <Link
-                        to={`/assignmentDetails/${assignment._id}`}
-                        className="btn w-full btn-primary"
-                      >
-                        View Assignment
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                  assignment={assignment}
+                ></AssignmentCard>
               ))}
           </div>
         </TabPanel>

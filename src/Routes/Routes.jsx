@@ -70,6 +70,7 @@ const router = createBrowserRouter([
       {
         path: "/mysubmitted",
         element: <MySubmitted></MySubmitted>,
+        loader: () => fetch("http://localhost:5000/mysubmitted"),
       },
       {
         path: "/login",

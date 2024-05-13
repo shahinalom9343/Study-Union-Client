@@ -101,7 +101,7 @@ const UpdateAssignment = () => {
               </label>
               <select
                 className="p-2"
-                defaultValue={updateAssignment.difficultyLevel}
+                defaultValue={updateAssignment.difficulty}
                 onChange={handleDifficulty}
               >
                 <option value="easy">Easy</option>

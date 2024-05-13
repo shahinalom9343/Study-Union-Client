@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const CreateAssignments = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [difficultyLevel, setDifficultyLevel] = useState("Easy");
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const handleDifficulty = (e) => {
     const level = e.target.value;
@@ -22,15 +24,19 @@ const CreateAssignments = () => {
     const titleName = form.titleValue.value;
     const marks = form.marks.value;
     const thumbnail = form.thumbnail.value;
+    const postedUserEmail = form.email.value;
     const difficulty = difficultyLevel;
+    const dueDate = startDate;
     const descriptions = form.descriptions.value;
 
     const assignmentData = {
       titleName,
       marks,
       thumbnail,
+      postedUserEmail,
       difficulty,
       descriptions,
+      dueDate,
     };
     fetch("http://localhost:5000/assignments", {
       method: "POST",
@@ -110,8 +116,20 @@ const CreateAssignments = () => {
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
+            <div className="col-span-3 sm:col-span-3">
+              <label htmlFor="email" className="text-xl ">
+                Posted User Email:
+              </label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                defaultValue={user?.email}
+                className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+              />
+            </div>
             <br />
-            <div className="col-span-3">
+            <div className="col-span-3 sm:col-span-3">
               <label htmlFor="difficulty" className="text-xl ">
                 Difficulty Level:
               </label>
@@ -126,7 +144,7 @@ const CreateAssignments = () => {
                 <option value="hard">Hard</option>
               </select>
             </div>
-            <div className="col-span-3">
+            <div className="col-span-3 sm:col-span-3">
               <label htmlFor="city" className="text-xl ">
                 Due Date:
               </label>
