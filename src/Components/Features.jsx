@@ -6,7 +6,7 @@ const Features = () => {
         A lot of features included at our forum. Here below are some samples..
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:my-10">
-        <div className="card w-96 border-2  shadow-xl">
+        <div className="card w-full md:w-96 border-2  shadow-xl">
           <figure>
             <img
               className="h-64"
@@ -26,7 +26,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="card w-96 border-2  shadow-xl">
+        <div className="card w-full md:w-96 border-2  shadow-xl">
           <figure>
             <img
               className="h-64"
@@ -45,7 +45,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="card w-96 border-2  shadow-xl">
+        <div className="card w-full md:w-96 border-2  shadow-xl">
           <figure>
             <img
               className="h-64"
@@ -65,7 +65,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="card w-96 border-2  shadow-xl">
+        <div className="card w-full md:w-96 border-2  shadow-xl">
           <figure>
             <img
               className="h-64"
@@ -84,7 +84,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="card w-96 border-2  shadow-xl">
+        <div className="card w-full md:w-96 border-2  shadow-xl">
           <figure>
             <img
               className="h-64"
@@ -103,7 +103,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="card w-96 border-2 shadow-xl">
+        <div className="card w-full md:w-96 border-2 shadow-xl">
           <figure>
             <img
               className="h-64"

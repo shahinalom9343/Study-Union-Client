@@ -132,14 +132,14 @@ const Login = () => {
             </div>
           </form>
         </div>
-        <div className="text-center font-extrabold text-xl text-red-500 my-6">
+        <div className="text-center font-extrabold text-xl text-red-500 md:my-3 lg:my-6">
           Or
         </div>
         <div className="mb-3 font-bold flex justify-center items-center gap-3">
           <div>
             <button onClick={handleGoogleSignIn} className="btn btn-primary">
               <span>Login With</span>
-              <div className="text-xl">
+              <div className="text-sm md:text-xl">
                 <FaGoogle></FaGoogle>
               </div>
             </button>

@@ -57,8 +57,8 @@ const UpdateAssignment = () => {
               Update Form :{" "}
             </p>
           </div>
-          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 border-2 bg-pink-100 p-4 rounded-xl">
-            <div className="col-span-6 sm:col-span-3">
+          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-6 border-2 bg-pink-100 p-4 rounded-xl">
+            <div className="col-span-6 sm:col-span-6">
               <label htmlFor="firstname" className="text-xl ">
                 Title of the Assignment
               </label>
@@ -70,7 +70,7 @@ const UpdateAssignment = () => {
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
-            <div className="col-span-3 sm:col-span-3">
+            <div className="col-span-6 sm:col-span-6">
               <label htmlFor="lastname" className="text-xl ">
                 Total Marks
               </label>
@@ -82,7 +82,7 @@ const UpdateAssignment = () => {
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
-            <div className="col-span-3 sm:col-span-3">
+            <div className="col-span-6 sm:col-span-6">
               <label htmlFor="email" className="text-xl ">
                 Thumbnail Image URL
               </label>
@@ -95,7 +95,7 @@ const UpdateAssignment = () => {
               />
             </div>
             <br />
-            <div className="col-span-3">
+            <div className="col-span-6">
               <label htmlFor="difficulty" className="text-xl ">
                 Difficulty Level:
               </label>
@@ -109,7 +109,7 @@ const UpdateAssignment = () => {
                 <option value="hard">Hard</option>
               </select>
             </div>
-            <div className="col-span-3">
+            <div className="col-span-6">
               <label htmlFor="city" className="text-xl ">
                 Due Date:
               </label>

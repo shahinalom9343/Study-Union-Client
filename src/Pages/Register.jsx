@@ -45,15 +45,15 @@ const Register = () => {
       <Helmet>
         <title>Study Union | Registration</title>
       </Helmet>
-      <div className="grid grid-cols-3 gap-10">
-        <div className="col-span-1">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="lg:col-span-1">
           <img
             className="flex lg:mt-24 justify-center"
             src={welcomeImg}
             alt=""
           />
         </div>
-        <div className="col-span-2 flex flex-col bg-slate-100 w-full mx-auto border-2 p-6 rounded-md sm:p-10 dark:bg-gray-50 dark:text-gray-800">
+        <div className="lg:col-span-2 flex flex-col bg-slate-100 w-full mx-auto border-2 p-6 rounded-md sm:p-10 dark:bg-gray-50 dark:text-gray-800">
           <p className="text-3xl font-extrabold text-cyan-800 text-center">
             Registration
           </p>

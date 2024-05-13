@@ -93,14 +93,6 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <div className="absolute flex justify-between transform gap-3 bottom-5 right-5">
-              <a href="#slide2" className="btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide1" className="btn btn-circle">
-                ❯
-              </a>
-            </div>
           </div>
         </SwiperSlide>
       </Swiper>

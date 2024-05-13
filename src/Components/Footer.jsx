@@ -4,10 +4,10 @@ import webImg from "../../public/icon.png";
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-black dark:bg-slate-50 text-white dark:text-gray-900 font-semibold">
+      <footer className="bg-black pl-10 lg:pl-1 dark:bg-slate-50 text-white dark:text-gray-900 font-semibold">
         <div className="container lg:px-20 py-6 mx-auto">
           <div className="lg:flex">
-            <div className="w-full -mx-6 lg:w-2/5">
+            <div className="w-full lg:-mx-6 lg:w-2/5">
               <div className="px-6 w-3/4">
                 <div className="flex gap-3 justify-start items-center">
                   <div className="bg-white rounded-full h-10 w-10">
@@ -71,7 +71,7 @@ const Footer = () => {
             </div>
 
             <div className="mt-6 lg:mt-0 lg:flex-1">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
                 <div>
                   <h3 className=" uppercase dark:text-white">About</h3>
                   <Link

@@ -85,14 +85,18 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3  p-2 z-10 shadow bg-teal-800 text-white font-bold rounded-box w-60"
           >
             {navItems}
           </ul>
         </div>
         <div className="flex">
-          <img src={logoStudy} className="h-10 w-10 mr-[-1px]" alt="" />
-          <Link to="/" className="text-2xl font-bold btn btn-ghost">
+          <img
+            src={logoStudy}
+            className="h-10 w-10 mr-[-1px] hidden md:block"
+            alt=""
+          />
+          <Link to="/" className="text-lg md:text-2xl font-bold btn btn-ghost">
             Study Union
           </Link>
         </div>
@@ -101,7 +105,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end mr-4">
-        <label className="text-5xl mr-1 cursor-pointer grid place-items-center">
+        <label className="text-5xl md:mr-1 cursor-pointer grid place-items-center">
           <input
             type="checkbox"
             onChange={handleTheme}
@@ -174,16 +178,16 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <div>
+          <div className="flex lg:gap-1">
             <Link
               to="/login"
-              className="text-xl font-bold text-white btn btn-accent mr-2"
+              className="lg:text-xl md:font-bold text-white btn btn-accent lg:mr-2"
             >
               Login
             </Link>
             <Link
               to="/register"
-              className="text-xl font-bold text-white btn btn-secondary"
+              className="text-xl  hidden md:flex font-bold text-white btn btn-secondary"
             >
               Register
             </Link>

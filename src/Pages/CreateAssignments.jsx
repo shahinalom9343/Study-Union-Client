@@ -90,7 +90,7 @@ const CreateAssignments = () => {
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
-            <div className="col-span-3 sm:col-span-3">
+            <div className="col-span-6 sm:col-span-3">
               <label htmlFor="lastname" className="text-xl ">
                 Total Marks
               </label>
@@ -103,7 +103,7 @@ const CreateAssignments = () => {
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
-            <div className="col-span-3 sm:col-span-3">
+            <div className="col-span-6 sm:col-span-3">
               <label htmlFor="email" className="text-xl ">
                 Thumbnail Image URL
               </label>
@@ -116,7 +116,7 @@ const CreateAssignments = () => {
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
-            <div className="col-span-3 sm:col-span-3">
+            <div className="col-span-6 sm:col-span-3">
               <label htmlFor="email" className="text-xl ">
                 Posted User Email:
               </label>
@@ -129,7 +129,7 @@ const CreateAssignments = () => {
               />
             </div>
             <br />
-            <div className="col-span-3 sm:col-span-3">
+            <div className="col-span-6 sm:col-span-3">
               <label htmlFor="difficulty" className="text-xl ">
                 Difficulty Level:
               </label>
@@ -144,7 +144,7 @@ const CreateAssignments = () => {
                 <option value="hard">Hard</option>
               </select>
             </div>
-            <div className="col-span-3 sm:col-span-3">
+            <div className="col-span-6 sm:col-span-3">
               <label htmlFor="city" className="text-xl ">
                 Due Date:
               </label>
