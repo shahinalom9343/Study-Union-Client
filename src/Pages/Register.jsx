@@ -15,6 +15,15 @@ const Register = () => {
     const password = form.password.value;
     // const object = { name, email, password };
     // console.log(object);
+
+    if (password.length < 6) {
+      alert("Password at least 6 characters");
+      return;
+    } else if (!/^(?=.*[a-z])(?=.*[A-Z]).+$/.test(password)) {
+      alert("Password must be at least 1 uppercase & 1 uppercase leeter");
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
         console.log(result.user);

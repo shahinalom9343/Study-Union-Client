@@ -1,11 +1,17 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
-import { IoIosArrowDropdown } from "react-icons/io";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 const AllAssignments = () => {
   const assignments = useLoaderData();
+  const [currentPage, setCurrentPage] = useState(1);
+  const assignmentsPerPage = 10;
+  const totalPages = Math.ceil(assignments.length / assignmentsPerPage);
+
+  const pages = [...Array(totalPages).keys()];
+  console.log(pages);
 
   // delete function
   const handleDelete = (_id) => {
@@ -32,6 +38,7 @@ const AllAssignments = () => {
       <Tabs>
         <div className="my-10 py-1 mx-auto bg-orange-100 text-lg font-semibold">
           <TabList>
+            <Tab>All</Tab>
             <Tab>Easy</Tab>
             <Tab>Medium</Tab>
             <Tab>Hard</Tab>
@@ -65,6 +72,59 @@ const AllAssignments = () => {
             </div>
           </div>
         </div> */}
+        <TabPanel>
+          <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
+            {assignments.map((assignment) => (
+              <div
+                key={assignment._id}
+                className="card lg:card-side bg-base-100 shadow-xl"
+              >
+                <figure>
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+                    alt="Album"
+                  />
+                </figure>
+                <div className="card-body bg-pink-100">
+                  <h2 className="card-title">{assignment.titleName}</h2>
+                  <div>Total Marks : {assignment.marks}</div>
+                  <div>
+                    Difficulty :
+                    <div className="badge badge-secondary ml-2">
+                      {assignment.difficulty}
+                    </div>
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="card-actions justify-start">
+                      <button
+                        onClick={() => handleDelete(assignment._id)}
+                        className="btn btn-error"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                    <div className="card-actions justify-center">
+                      <Link
+                        to={`/updateAssignment/${assignment._id}`}
+                        className="btn text-white font-bold btn-success btn-outline"
+                      >
+                        Update
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="card-actions">
+                    <Link
+                      to={`/assignmentDetails/${assignment._id}`}
+                      className="btn w-full btn-primary"
+                    >
+                      View Assignment
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
             {assignments
@@ -231,6 +291,19 @@ const AllAssignments = () => {
           </div>
         </TabPanel>
       </Tabs>
+      <div className="join mx-auto flex justify-center items-center gap-1 my-4">
+        <button className="btn btn-outline">Next</button>
+        {pages.map((page) => (
+          <button
+            onClick={() => setCurrentPage(page)}
+            className="btn btn-outline"
+            key={page}
+          >
+            {page + 1}
+          </button>
+        ))}
+        <button className="btn btn-outline">Next</button>
+      </div>
     </div>
   );
 };

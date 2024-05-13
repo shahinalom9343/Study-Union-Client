@@ -13,6 +13,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AssignmentDetails from "../Pages/AssignmentDetails";
 import SubmissionForm from "../Pages/SubmissionForm";
 import UpdateAssignment from "../Pages/UpdateAssignment";
+import MySubmitted from "../Pages/MySubmitted";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/assignments/${params.id}`),
+      },
+      {
+        path: "/mysubmitted",
+        element: <MySubmitted></MySubmitted>,
       },
       {
         path: "/login",

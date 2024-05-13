@@ -23,7 +23,7 @@ const Banner = () => {
         <SwiperSlide>
           <div id="slide1" className="carousel-item relative w-full">
             <img src="https://i.ibb.co/WxTZZJs/img3.webp" className="w-full" />
-            <div className="absolute space-y-5 w-2/5 bg-gradient-to-r h-full from-[#151515] to-[#15151500] left-0 top-0 pl-20  flex items-center text-white">
+            <div className="absolute space-y-5 w-2/5 bg-gradient-to-r from-[#151515] to-[#15151500] left-0 top-0 pl-20  flex items-center text-white">
               <div className="rounded-xl text-start space-y-4">
                 <h2 className="text-3xl font-bold">
                   Study Union: Where Knowledge Meets Collaboration

@@ -3,11 +3,13 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CreateAssignments = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [difficultyLevel, setDifficultyLevel] = useState("Easy");
+  const navigate = useNavigate();
 
   const handleDifficulty = (e) => {
     const level = e.target.value;
@@ -47,6 +49,7 @@ const CreateAssignments = () => {
             showConfirmButton: false,
             timer: 2000,
           });
+          navigate("/assignments");
           form.reset();
         }
       });
@@ -77,6 +80,7 @@ const CreateAssignments = () => {
                 type="text"
                 name="titleValue"
                 placeholder="Title"
+                required
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
@@ -88,6 +92,7 @@ const CreateAssignments = () => {
                 id="marks"
                 type="number"
                 name="marks"
+                required
                 placeholder="Total marks"
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
@@ -100,6 +105,7 @@ const CreateAssignments = () => {
                 id="thumbnail"
                 type="text"
                 name="thumbnail"
+                required
                 placeholder="Image URL"
                 className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
@@ -112,6 +118,7 @@ const CreateAssignments = () => {
               <select
                 className="p-2"
                 value={difficultyLevel}
+                required
                 onChange={handleDifficulty}
               >
                 <option value="easy">Easy</option>
@@ -138,7 +145,7 @@ const CreateAssignments = () => {
                 id="description"
                 type="text"
                 name="descriptions"
-                placeholder=""
+                required
                 className="w-full pl-1 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>

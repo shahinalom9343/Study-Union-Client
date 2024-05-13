@@ -157,15 +157,15 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-teal-800 text-white font-bold rounded-box w-60"
+              className="menu menu-sm dropdown-content mt-3  p-2 z-10 shadow bg-teal-800 text-white font-bold rounded-box w-60"
             >
               <li>
-                <a>My attemped Assignments</a>
+                <Link to="/mysubmitted">My attemped Assignments</Link>
               </li>
 
               <li>
                 <button
-                  className="bg-pink-600 text-center"
+                  className="btn btn-outline text-white"
                   onClick={handleSignOut}
                 >
                   Logout

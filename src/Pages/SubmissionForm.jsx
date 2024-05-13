@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const SubmissionForm = () => {
   const { user } = useContext(AuthContext);
-  const handleSubmit = (_id) => {};
+  const handleSubmit = () => {};
   return (
     <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
       <form
@@ -53,13 +54,14 @@ const SubmissionForm = () => {
             </div>
             <div className="col-span-full">
               <div className="flex items-center space-x-2">
-                <button
+                <Link
                   type="button"
+                  to="/mysubmitted"
                   onClick={() => handleSubmit()}
                   className="px-4 btn btn-info w-full text-white font-bold text-xl py-2 border rounded-md dark:border-gray-800"
                 >
                   Submit Assignment
-                </button>
+                </Link>
               </div>
             </div>
           </div>

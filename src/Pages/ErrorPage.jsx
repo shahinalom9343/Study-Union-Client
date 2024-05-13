@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 const ErrorPage = () => {
   return (
-    <section className="flex items-center h-full p-16 dark:bg-gray-50 dark:text-gray-800">
+    <section className="flex items-center  p-16 dark:bg-gray-50 dark:text-gray-800">
       <Helmet>
         <title>Study Union | ErrorPage</title>
       </Helmet>

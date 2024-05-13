@@ -1,8 +1,8 @@
 import { useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-// import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UpdateAssignment = () => {
   const updateAssignment = useLoaderData();
@@ -41,9 +41,7 @@ const UpdateAssignment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        console.log(data);
-        alert("Updated Successfully");
+        toast("Assignment Updated Successfully");
         navigate("/assignments");
       });
   };
@@ -142,6 +140,7 @@ const UpdateAssignment = () => {
           </div>
         </fieldset>
       </form>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
