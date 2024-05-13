@@ -145,7 +145,7 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full lg:tooltip" data-tip="hello">
+              <div title={user.displayName} className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
                   src={
