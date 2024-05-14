@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import loginImage from "../assets/login.jpg";
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
@@ -89,90 +90,98 @@ const Login = () => {
       <Helmet>
         <title>Study Union | Login</title>
       </Helmet>
-      <div className="w-full max-w-xl mx-auto overflow-hidden bg-cyan-100 rounded-lg shadow-md dark:bg-gray-800">
-        <div className="px-6 py-4">
-          <h3 className="mt-3 text-3xl font-extrabold text-center text-gray-600 dark:text-gray-200">
-            Login Here
-          </h3>
+      <div className="flex flex-col gap-2 lg:flex-row">
+        <div>
+          <img className="h-80" src={loginImage} alt="" />
+        </div>
+        <div className="w-full max-w-xl mx-auto overflow-hidden bg-lime-300 rounded-lg shadow-md dark:bg-gray-800">
+          <div className="px-6 py-4">
+            <h3 className="mt-3 text-3xl font-extrabold text-center text-gray-600 dark:text-gray-200">
+              Login Here
+            </h3>
 
-          <form onSubmit={handleLogin}>
-            <div className="w-full mt-4">
-              <input
-                className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                aria-label="Email Address"
-              />
+            <form onSubmit={handleLogin}>
+              <div className="w-full mt-4">
+                <input
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  aria-label="Email Address"
+                />
+              </div>
+
+              <div className="w-full mt-4">
+                <input
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  aria-label="Password"
+                />
+              </div>
+
+              <div className="flex items-center justify-between mt-4">
+                <a
+                  href="#"
+                  className="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500"
+                >
+                  Forget Password?
+                </a>
+
+                <input
+                  type="submit"
+                  className=" font-semibold text-base px-5 py-2 rounded-lg bg-green-500 text-white"
+                  value="Sign In"
+                />
+              </div>
+            </form>
+          </div>
+          <div className="text-center font-extrabold text-xl text-red-500 md:my-3 lg:my-6">
+            Or
+          </div>
+          <div className="mb-3 font-bold flex justify-center items-center gap-3">
+            <div>
+              <button onClick={handleGoogleSignIn} className="btn btn-primary">
+                <span>Login With</span>
+                <div className="text-sm md:text-xl">
+                  <FaGoogle></FaGoogle>
+                </div>
+              </button>
             </div>
-
-            <div className="w-full mt-4">
-              <input
-                className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
-                type="password"
-                name="password"
-                placeholder="Password"
-                aria-label="Password"
-              />
-            </div>
-
-            <div className="flex items-center justify-between mt-4">
-              <a
-                href="#"
-                className="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500"
+            <div>
+              {" "}
+              <button
+                onClick={handleGithubSignIn}
+                className=" btn btn-secondary"
               >
-                Forget Password?
-              </a>
-
-              <input
-                type="submit"
-                className=" font-semibold text-base px-5 py-2 rounded-lg bg-green-500 text-white"
-                value="Sign In"
-              />
+                <span>Login With</span>
+                <div className="text-xl">
+                  <FaGithub></FaGithub>
+                </div>
+              </button>
             </div>
-          </form>
-        </div>
-        <div className="text-center font-extrabold text-xl text-red-500 md:my-3 lg:my-6">
-          Or
-        </div>
-        <div className="mb-3 font-bold flex justify-center items-center gap-3">
-          <div>
-            <button onClick={handleGoogleSignIn} className="btn btn-primary">
-              <span>Login With</span>
-              <div className="text-sm md:text-xl">
-                <FaGoogle></FaGoogle>
-              </div>
-            </button>
+            <div>
+              <button className="btn btn-accent">
+                <span>Login With</span>
+                <div className="text-xl">
+                  <FaFacebook></FaFacebook>
+                </div>
+              </button>
+            </div>
           </div>
-          <div>
-            {" "}
-            <button onClick={handleGithubSignIn} className=" btn btn-secondary">
-              <span>Login With</span>
-              <div className="text-xl">
-                <FaGithub></FaGithub>
-              </div>
-            </button>
-          </div>
-          <div>
-            <button className="btn btn-accent">
-              <span>Login With</span>
-              <div className="text-xl">
-                <FaFacebook></FaFacebook>
-              </div>
-            </button>
-          </div>
-        </div>
-        <div className="flex bg-amber-100 items-center justify-center py-4 text-center  dark:bg-gray-700">
-          <span className="text-base dark:text-gray-200">
-            Do not have an account?{" "}
-          </span>
+          <div className="flex bg-amber-100 items-center justify-center py-4 text-center  dark:bg-gray-700">
+            <span className="text-base dark:text-gray-200">
+              Do not have an account?{" "}
+            </span>
 
-          <Link
-            to="/register"
-            className="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline"
-          >
-            Register
-          </Link>
+            <Link
+              to="/register"
+              className="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline"
+            >
+              Register
+            </Link>
+          </div>
         </div>
       </div>
     </div>

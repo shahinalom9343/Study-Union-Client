@@ -1,14 +1,40 @@
 import { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AssignmentDetails = () => {
   const { user } = useContext(AuthContext);
   const assignment = useLoaderData();
-  // console.log(user);
+  const navigate = useNavigate();
+  const handleSubmitAssignment = () => {
+    fetch("http://localhost:5000/mysubmitted", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(assignment),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Submitted Successfully !!",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          navigate("/submission");
+        }
+      });
+  };
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
-      <div className="container flex flex-col-reverse mx-auto lg:flex-row">
+      <div
+        // onSubmit={handleSubmitAssignment}
+        className="container flex flex-col-reverse mx-auto lg:flex-row"
+      >
         <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-violet-600 dark:text-gray-50">
           <div className="flex space-x-2 sm:space-x-4">
             <svg
@@ -27,7 +53,7 @@ const AssignmentDetails = () => {
             </svg>
             <div className="space-y-2">
               <p className="text-lg font-bold leading-snug">
-                Name of the Assignment :{assignment.titleName}
+                Name of the Assignment:{assignment.titleName}
               </p>
             </div>
           </div>
@@ -115,9 +141,12 @@ const AssignmentDetails = () => {
               </p>
             </div>
           </div>
-          <Link to="/submission" className="btn btn-outline w-full">
+          <button
+            onClick={handleSubmitAssignment}
+            className="btn btn-outline w-full font-semibold text-xl"
+          >
             Take Assignment
-          </Link>
+          </button>
         </div>
         <div className="lg:w-1/2 xl:w-3/5 dark:bg-gray-100">
           <div className="flex items-center justify-center p-4 md:p-8 lg:p-12">

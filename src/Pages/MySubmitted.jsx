@@ -18,12 +18,11 @@ const MySubmitted = () => {
             <col className="w-24" />
           </colgroup>
           <thead className="dark:bg-gray-300">
-            <tr className="text-left font-bold bg-slate-200">
-              <th className="p-3">Title of the Assignment</th>
-              <th className="p-3">Assignment Marks</th>
-              <th className="p-3">Obtained Marks</th>
-              <th className="p-3">Feedbacks</th>
-              <th className="p-3 text-center">Status</th>
+            <tr className="text-center font-bold bg-slate-200">
+              <th className="p-3 text-center">Title of the Assignment</th>
+              <th className="p-3 text-center">Assignment Marks</th>
+              <th className="p-3 text-center">Obtained Marks</th>
+              <th className="p-3 text-center">Feedbacks</th>
             </tr>
           </thead>
           <tbody>
@@ -32,24 +31,23 @@ const MySubmitted = () => {
                 key={singleAssignment._id}
                 className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50"
               >
-                <td className="p-3">
-                  <p>{singleAssignment._id}</p>
+                <td className="p-3 text-center">
+                  <p>{singleAssignment.titleName}</p>
                 </td>
-                <td className="p-3">
+                <td className="p-3 text-center">
+                  <p>{singleAssignment.marks}</p>
+                </td>
+                <td className="p-3 text-center">
                   <p>{singleAssignment.doclink}</p>
-                </td>
-                <td className="p-3">
-                  <p>{singleAssignment.notes}</p>
-                </td>
-                <td className="p-3">
-                  <p>01 Feb 2022</p>
                 </td>
 
                 <td className="p-3 text-center">
                   <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-                    <button className="btn btn-info text-white font-semibold">
-                      Pending
-                    </button>
+                    <textarea
+                      name=""
+                      placeholder="Your Feedback Here"
+                      id=""
+                    ></textarea>
                   </span>
                 </td>
               </tr>

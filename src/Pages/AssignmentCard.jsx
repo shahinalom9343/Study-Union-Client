@@ -8,7 +8,7 @@ const AssignmentCard = ({ assignment }) => {
     assignment;
   const handleDelete = (_id) => {
     if (user.email !== postedUserEmail)
-      return alert("Action not Permissible !!");
+      return alert("Deleted Action not Permissible !!");
     // console.log(_id);
     fetch(`http://localhost:5000/assignments/${_id}`, {
       method: "DELETE",

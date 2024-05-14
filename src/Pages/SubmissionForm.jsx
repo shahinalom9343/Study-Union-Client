@@ -17,27 +17,7 @@ const SubmissionForm = () => {
       doclink,
       notes,
     };
-    fetch("http://localhost:5000/mysubmitted", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(submittedAssignments),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            icon: "success",
-            title: "Assignment Submitted Successfully !!",
-            showConfirmButton: false,
-            timer: 2000,
-          });
-          navigate("/mysubmitted");
-          form.reset();
-        }
-      });
+    console.log(submittedAssignments);
   };
   return (
     <div className="p-6 dark:bg-gray-100 dark:text-gray-900">
