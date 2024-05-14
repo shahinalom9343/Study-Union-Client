@@ -1,3 +1,7 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 const Faq = () => {
   return (
     <div className="bg-white dark:bg-gray-900 border-2 md:mb-10 rounded-lg">
@@ -7,7 +11,7 @@ const Faq = () => {
         </h1>
 
         <div className="grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-3">
-          <div>
+          <div data-aos="fade-down" data-aos-duration="3000">
             <div className="inline-block p-3 text-white bg-green-600 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +44,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div>
+          <div data-aos="fade-down" data-aos-duration="3000">
             <div className="inline-block p-3 text-white bg-green-600 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +76,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div>
+          <div data-aos="fade-down" data-aos-duration="3000">
             <div className="inline-block p-3 text-white bg-green-600 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +109,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div>
+          <div data-aos="fade-up" data-aos-duration="3000">
             <div className="inline-block p-3 text-white bg-green-600 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +142,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div>
+          <div data-aos="fade-up" data-aos-duration="3000">
             <div className="inline-block p-3 text-white bg-green-600 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +176,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div>
+          <div data-aos="fade-up" data-aos-duration="3000">
             <div className="inline-block p-3 text-white bg-green-600 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
