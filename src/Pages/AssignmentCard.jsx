@@ -44,7 +44,7 @@ const AssignmentCard = ({ assignment }) => {
           Posted User Email:
           <div className="badge badge-secondary ml-2">{postedUserEmail}</div>
         </div>
-        <div className="flex gap-1">
+        <div className="flex gap-1 justify-between">
           <div className="card-actions justify-start">
             <button
               onClick={() => handleDelete(_id)}

@@ -72,7 +72,7 @@ const AllAssignments = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
             {assignments
-              .filter((single) => single.difficulty === "Easy")
+              .filter((single) => single.difficulty === "easy")
               .map((assignment) => (
                 <AssignmentCard
                   key={assignment._id}

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
@@ -20,6 +20,7 @@ const githubProvider = new GithubAuthProvider();
 const Login = () => {
   // const [user, setUser] = useState();
   const { setUser, signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // google login
   const handleGoogleSignIn = () => {
@@ -35,6 +36,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/assignments");
       })
       .catch((error) => {
         console.error(error);
