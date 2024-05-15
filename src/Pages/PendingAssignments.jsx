@@ -45,7 +45,7 @@ const PendingAssignments = () => {
                   <p>{singleAssignment.marks}</p>
                 </td>
                 <td className="p-3">
-                  <p>{user.displayName}</p>
+                  <p>{singleAssignment.username}</p>
                 </td>
                 <td className="p-3 text-center">
                   <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">

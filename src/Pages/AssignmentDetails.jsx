@@ -14,6 +14,7 @@ const AssignmentDetails = () => {
     const titleName = form.titleValue.value;
     const marks = form.marks.value;
     const thumbnail = form.thumbnail.value;
+    const username = form.username.value;
     const postedUserEmail = form.email.value;
     const difficulty = form.difficulty.value;
     const dueDate = form.date.value;
@@ -23,12 +24,13 @@ const AssignmentDetails = () => {
       titleName,
       marks,
       thumbnail,
+      username,
       postedUserEmail,
       difficulty,
       descriptions,
       dueDate,
     };
-    // console.log(assignmentData);
+    console.log(assignmentData);
     fetch("http://localhost:5000/mysubmitted", {
       method: "POST",
       headers: {
@@ -94,6 +96,19 @@ const AssignmentDetails = () => {
                   type="text"
                   name="thumbnail"
                   defaultValue={assignment.thumbnail}
+                  disabled
+                  className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                />
+              </div>
+              <div className=" flex text-lg">
+                <label htmlFor="user" className="font-bold">
+                  Examinee Name:
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  name="username"
+                  defaultValue={user.displayName}
                   disabled
                   className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
                 />
