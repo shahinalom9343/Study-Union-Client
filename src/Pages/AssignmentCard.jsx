@@ -10,7 +10,7 @@ const AssignmentCard = ({ assignment }) => {
     if (user.email !== postedUserEmail)
       return alert("Deleted Action not Permissible !!");
     // console.log(_id);
-    fetch(`http://localhost:5000/assignments/${_id}`, {
+    fetch(`https://study-union-server.vercel.app/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

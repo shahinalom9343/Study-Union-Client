@@ -38,7 +38,7 @@ const CreateAssignments = () => {
       descriptions,
       dueDate,
     };
-    fetch("http://localhost:5000/assignments", {
+    fetch("https://study-union-server.vercel.app", {
       method: "POST",
       headers: {
         "content-type": "application/json",

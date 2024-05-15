@@ -32,7 +32,7 @@ const UpdateAssignment = () => {
       difficulty,
       descriptions,
     };
-    fetch(`http://localhost:5000/assignments/${updateAssignment._id}`, {
+    fetch(`https://study-union-server.vercel.app/${updateAssignment._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

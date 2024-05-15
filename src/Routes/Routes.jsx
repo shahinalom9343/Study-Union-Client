@@ -28,7 +28,8 @@ const router = createBrowserRouter([
       {
         path: "/assignments",
         element: <AllAssignments></AllAssignments>,
-        loader: () => fetch("http://localhost:5000/assignments"),
+        loader: () =>
+          fetch("https://study-union-server.vercel.app/assignments"),
       },
       {
         path: "/createassignments",
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/assignments/${params.id}`),
+          fetch(`https://study-union-server.vercel.app/${params.id}`),
       },
       {
         path: "/submission",
@@ -55,7 +56,8 @@ const router = createBrowserRouter([
             <PendingAssignments></PendingAssignments>
           </PrivateRoutes>
         ),
-        loader: () => fetch("http://localhost:5000/mysubmitted"),
+        loader: () =>
+          fetch("https://study-union-server.vercel.app/mysubmitted"),
       },
       {
         path: "/updateAssignment/:id",
@@ -65,12 +67,13 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/assignments/${params.id}`),
+          fetch(`https://study-union-server.vercel.app/${params.id}`),
       },
       {
         path: "/mysubmitted",
         element: <MySubmitted></MySubmitted>,
-        loader: () => fetch("http://localhost:5000/mysubmitted"),
+        loader: () =>
+          fetch("https://study-union-server.vercel.app/mysubmitted"),
       },
       {
         path: "/login",

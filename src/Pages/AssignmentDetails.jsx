@@ -31,7 +31,7 @@ const AssignmentDetails = () => {
       dueDate,
     };
     console.log(assignmentData);
-    fetch("http://localhost:5000/mysubmitted", {
+    fetch("https://study-union-server.vercel.app/mysubmitted", {
       method: "POST",
       headers: {
         "content-type": "application/json",
